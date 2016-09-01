@@ -1,3 +1,5 @@
+package bin;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,24 +9,39 @@ import java.util.List;
 public class User {
     private String userName;
     private String passWord;
-    List<PhoneNumber> phoneNumbers = new ArrayList<>();
+    public List<PhoneNumber> phoneNumbers = new ArrayList<>();
+    public List<String> friendList = new ArrayList<>();
+
+    public static int userID;
+    static{
+        userID=0;
+    }
 
     public String getUserName() {
         return userName;
     }
     public void setUserName(String userName) {
-        this.userName = userName;
+        if( userName !=null) {
+            this.userName = userName;
+        }else{
+            throw new NullPointerException();
+        }
     }
     public String getPassWord() {
         return passWord;
     }
     public void setPassWord(String passWord) {
-        this.passWord = passWord;
+        if(passWord != null) {
+            this.passWord = passWord;
+        }else{
+            throw new NullPointerException();
+        }
+
     }
 
-    User(){}
+    public User(){}
 
-    User(String userName, String passWord){
+    public User(String userName, String passWord){
         this.setUserName(userName);
         this.setPassWord(passWord);
     }
@@ -52,7 +69,7 @@ public class User {
 
     @Override
     public String toString(){
-        return this.getUserName()+"   "+this.getPassWord()+"  "+this.phoneNumbers.toString();
+        return userID+"   "+this.getUserName()+"   "+this.getPassWord()+"  "+this.phoneNumbers.toString()+"  "+this.friendList.toString();
     }
 
 }
