@@ -268,14 +268,4 @@ public class Program extends StaticVariables{
         System.out.print(getProperties().getProperty(str));
     }
 
-
-
-
-
-
-
-
-
-
-
 }
